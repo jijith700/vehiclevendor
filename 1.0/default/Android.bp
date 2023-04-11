@@ -1,0 +1,28 @@
+cc_binary {
+    name: "vendor.demo.vehiclevendor@1.0-service",
+    init_rc: ["vendor.demo.vehiclevendor@1.0-service.rc"],
+    vintf_fragments: ["vendor.demo.vehiclevendor@1.0-service.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    overrides: ["android.hardware.automotive.vehicle@2.0-service"],
+
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+    ],
+    
+    local_include_dirs: ["impl"],
+
+    srcs: ["impl/**/*.cpp"],
+
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libutils",
+        "libhidlbase",
+        "android.hardware.automotive.vehicle@2.0",
+        "android.hardware.automotive.vehicle@2.0-manager-lib",
+        "vendor.demo.vehiclevendor@1.0",
+    ]
+}

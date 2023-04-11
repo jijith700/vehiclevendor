@@ -1,0 +1,22 @@
+package vendor.demo.vehiclevendor@1.0;
+
+import android.hardware.automotive.vehicle@2.0;
+
+/**
+ * Extension of VehicleProperty enum declared in Vehicle HAL 2.0
+ */
+enum VehicleProperty: android.hardware.automotive.vehicle@2.0::VehicleProperty {
+
+    /**
+     * For upadating the RPI4 GPIO
+     *
+     * @change_mode VehiclePropertyChangeMode:ON_CHANGE
+     * @access VehiclePropertyAccess:READ_WRITE
+     */
+    RPI4_GPIO = (
+      0x0004
+      | VehiclePropertyGroup:VENDOR
+      | VehiclePropertyType:INT32
+      | VehicleArea:GLOBAL),
+
+};
